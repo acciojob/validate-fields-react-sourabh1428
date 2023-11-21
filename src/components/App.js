@@ -5,7 +5,7 @@ import './../styles/App.css';
 const App = () => {
 
   const[state,setState]=useState({name:'',password:''});
-  const[err,setErr]=useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   function handleChange(event){
     setState({...state,[event.target.name]:event.target.value});
   }
@@ -14,10 +14,10 @@ const App = () => {
     
     event.preventDefault();
     if(state.name==='' || state.password===''){
-      setErr(true);
+      setErrorMessage('Both name and password are required');
     }
     else{
-      setErr(false);
+      setErrorMessage('');
     }    console.log(state);
   }
 
@@ -27,7 +27,7 @@ const App = () => {
       <input type="text" name="name" value={state.name} onChange={handleChange}/>
       <input type="password" name="password" value={state.password} onChange={handleChange} />
       <button>Submit</button>
-      {err&&(<h1 className="errorMessage">Error</h1>)}
+      {errorMessage&&(<h1 className="errorMessage">{errorMessage}</h1>)}
        </form>
 
 
