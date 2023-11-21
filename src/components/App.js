@@ -27,7 +27,7 @@ const App = () => {
       <input type="text" name="name" value={state.name} onChange={handleChange}/>
       <input type="password" name="password" value={state.password} onChange={handleChange} />
       <button>Submit</button>
-      {err&&(<h1>err</h1>)}
+      {err&&(<h1 className="errorMessage">Error</h1>)}
        </form>
 
 
